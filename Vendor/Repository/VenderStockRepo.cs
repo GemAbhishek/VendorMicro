@@ -19,17 +19,10 @@ namespace Vendor.Repository
         };
 
        
-        public List<int> GetVendorbyId(int ProductId)
+        public int GetVendorbyId(int ProductId)
         {
-            List<int> ls = new List<int>();
-            foreach(VendorStock v in vendorsproduct)
-            {
-                if(v.ProductId == ProductId && v.StockInHand > 1)
-                {
-                    ls.Add(v.VendertId);
-                }
-            }
-            return ls;
+            int id = vendorsproduct.Where(x => x.ProductId == ProductId).FirstOrDefault().VendertId;
+            return id;
         }
     }
 }
