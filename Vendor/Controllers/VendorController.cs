@@ -17,25 +17,19 @@ namespace Vendor.Controllers
         {
             ivendor = _db;
         }
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [HttpGet]
+        public IActionResult Get()
         {
-            if ((ivendor.GetVenderbyId(id)) == null)
+            if (ivendor.GetDetails() == null)
             {
                 return BadRequest();
             }
-            return Ok(ivendor.GetVenderbyId(id));
+            return Ok(ivendor.GetDetails());
         }
-        /*
         [HttpGet("{id}")]
         public IActionResult GetbyId(int id)
         {
-            if ((ivendor.GetVenderbyId(id)) == null)
-            {
-                return BadRequest();
-            }
-            return Ok(ivendor.GetVenderbyId(id));
+            return Ok("ok");
         }
-        */
     }
 }
