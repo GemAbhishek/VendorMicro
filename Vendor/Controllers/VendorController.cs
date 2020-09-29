@@ -17,7 +17,15 @@ namespace Vendor.Controllers
         {
             ivendor = _db;
         }
-
+        [HttpGet]
+        public IActionResult Get()
+        {
+            if (ivendor.GetDetails() == null)
+            {
+                return BadRequest();
+            }
+            return Ok(ivendor.GetDetails());
+        }
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
