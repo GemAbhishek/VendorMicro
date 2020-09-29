@@ -26,12 +26,12 @@ namespace Vendor.Controllers
             }
             return Ok(ivendor.GetDetails());
         }
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [HttpGet("GetbyId/{id}")]
+        public IActionResult GetbyId(int id)
         {
             if ((ivendor.GetVenderbyId(id)) == null)
             {
-                return BadRequest("No vendor");
+                return BadRequest();
             }
             return Ok(ivendor.GetVenderbyId(id));
         }
