@@ -29,7 +29,7 @@ namespace Vendor.Controllers
         [HttpGet("{id}")]
         public IActionResult GetbyId(int id)
         {
-            return Ok("ok");
+            return Ok(ivendor.GetVenderbyId(id));
         }
     }
 }

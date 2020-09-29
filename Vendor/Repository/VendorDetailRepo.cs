@@ -24,11 +24,7 @@ namespace Vendor.Repository
 
         public VendorDetail GetVenderbyId(int ProductId)
         {
-            VenderStockRepo stock = new VenderStockRepo();
-
-            int vid = stock.GetVendorbyId(ProductId);
-
-            VendorDetail obj = vendors.Where(x => x.Id == vid).FirstOrDefault();
+            VendorDetail obj = vendors.Where(x => x.Id == ProductId).FirstOrDefault();
 
             return obj;
         }
